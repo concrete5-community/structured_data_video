@@ -6,19 +6,19 @@ use A3020\StructuredDataVideo\Handler\VideoPlayerBlock;
 use A3020\StructuredDataVideo\StructuredData;
 use Concrete\Core\Application\ApplicationAwareInterface;
 use Concrete\Core\Application\ApplicationAwareTrait;
-use Concrete\Core\Logging\Logger;
 use Exception;
+use Psr\Log\LoggerInterface;
 
 class BlockOutput implements ApplicationAwareInterface
 {
     use ApplicationAwareTrait;
 
     /**
-     * @var Logger
+     * @var \Psr\Log\LoggerInterface
      */
     private $logger;
 
-    public function __construct(Logger $logger)
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
@@ -57,7 +57,7 @@ class BlockOutput implements ApplicationAwareInterface
                 );
             }
         } catch (Exception $e) {
-            $this->logger->addDebug($e->getMessage());
+            $this->logger->debug($e->getMessage());
         }
 
         return $event;

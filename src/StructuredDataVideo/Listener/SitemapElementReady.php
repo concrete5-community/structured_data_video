@@ -7,14 +7,12 @@ use A3020\StructuredDataVideo\Page\Sitemap\Element\SitemapHeader;
 use A3020\StructuredDataVideo\Page\Sitemap\Element\SitemapPageVideo;
 use A3020\StructuredDataVideo\Page\Sitemap\Element\Video as VideoElement;
 use A3020\StructuredDataVideo\VideoBlocks;
-use A3020\StructuredDataVideo\VideoPropertiesFactory;
 use Concrete\Core\Application\ApplicationAwareInterface;
 use Concrete\Core\Application\ApplicationAwareTrait;
 use Concrete\Core\Block\Block;
-use Concrete\Core\File\File;
-use Concrete\Core\Logging\Logger;
 use Concrete\Core\Page\Page;
 use Exception;
+use Psr\Log\LoggerInterface;
 
 class SitemapElementReady implements ApplicationAwareInterface
 {
@@ -26,7 +24,7 @@ class SitemapElementReady implements ApplicationAwareInterface
     private $videoBlocks;
 
     /**
-     * @var Logger
+     * @var \Psr\Log\LoggerInterface
      */
     private $logger;
 
@@ -35,7 +33,7 @@ class SitemapElementReady implements ApplicationAwareInterface
      */
     private $videoPlayerBlock;
 
-    public function __construct(VideoBlocks $videoBlocks, Logger $logger, VideoPlayerBlock $videoPlayerBlock)
+    public function __construct(VideoBlocks $videoBlocks, LoggerInterface $logger, VideoPlayerBlock $videoPlayerBlock)
     {
         $this->videoBlocks = $videoBlocks;
         $this->logger = $logger;
@@ -91,7 +89,7 @@ class SitemapElementReady implements ApplicationAwareInterface
 
             return $event;
         } catch (Exception $e) {
-            $this->logger->addDebug($e->getMessage());
+            $this->logger->debug($e->getMessage());
         }
 
         return $event;

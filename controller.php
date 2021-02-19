@@ -12,7 +12,7 @@ final class Controller extends Package
 {
     protected $pkgHandle = 'structured_data_video';
     protected $appVersionRequired = '8.4.1';
-    protected $pkgVersion = '1.1.0';
+    protected $pkgVersion = '1.1.1';
     protected $pkgAutoloaderRegistries = [
         'src/StructuredDataVideo' => '\A3020\StructuredDataVideo',
     ];
