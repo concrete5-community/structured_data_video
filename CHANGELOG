@@ -1,3 +1,6 @@
+1.1.0
+- Add videos to the sitemap.xml. (see https://support.google.com/webmasters/answer/80471?hl=en)
+
 1.0.0
 - Approved by PRB.
 - Cleanup (feedback from PRB).

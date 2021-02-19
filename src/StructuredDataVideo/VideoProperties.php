@@ -271,6 +271,7 @@ class VideoProperties
      * Return false if one of those required attributes is missing or empty.
      *
      * @see https://developers.google.com/search/docs/data-types/video
+     * @see https://support.google.com/webmasters/answer/80471?hl=en
      *
      * @return bool
      */
@@ -286,7 +287,7 @@ class VideoProperties
             // A poster / thumbnail is required.
             && $this->getFirstThumbnail()
 
-            // A link to the file is recommended.
+            // A link to the file is required for sitemap, not necessarily for structured data.
             && $this->getContentUrl();
     }
 }
