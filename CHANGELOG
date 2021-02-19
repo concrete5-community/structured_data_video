@@ -1,0 +1,11 @@
+1.0.0
+- Approved by PRB.
+- Cleanup (feedback from PRB).
+- Add 'isComplete' method, to make sure the structured data and sitemap only list
+videos that have all required attributes.
+- Change naming to 'Core Video Player', to avoid confusion.
+- Remove unused embed* methods.
+
+0.9.0
+- Use on_block_output to add a structured data section.
+- Only works with the core 'Video Player' block.
